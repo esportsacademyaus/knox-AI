@@ -1,1 +1,25 @@
 Keys required
+
+Elastic Cloud ID: My_deployment:YXVzdHJhbGlhLXNvdXRoZWFzdDEuZ2NwLmVsYXN0aWMtY2xvdWQuY29tJGRhNWQ0NGMxYTdkYjQ0YjJhMmRmZGQ2MDUwMGVhMjE4JGJjODQ5YjYxYzc1MDQwNjk5ZjU0Y2E5ZGVhODAzNGZi
+
+Elastic API key: MUt5OUJaQUJ3RnM0QXVydUNTWDc6b3dTQlJZbDVTd2FMam9OWXRWNUJGZw==
+
+Open AI API KEY: sk-proj-hkh1DcHMQxJYpFdGX2cmT3BlbkFJPhWadzbwHeClOFvzVAot
+
+
+FIX
+
+!pip install -U langchain-community
+
+from langchain_elasticsearch import ElasticsearchStore
+from langchain_community.embeddings import OpenAIEmbeddings # Import from langchain_community
+
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+vector_store = ElasticsearchStore.from_documents(
+    docs,
+    es_cloud_id=ELASTIC_CLOUD_ID,
+    es_api_key=ELASTIC_API_KEY,
+    index_name="workplace-docs",
+    embedding=embeddings,
+)
