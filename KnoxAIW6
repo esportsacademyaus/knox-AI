@@ -9,17 +9,18 @@ Open AI API KEY: sk-proj-hkh1DcHMQxJYpFdGX2cmT3BlbkFJPhWadzbwHeClOFvzVAot
 
 FIX
 
-!pip install -U langchain-community
 
-from langchain_elasticsearch import ElasticsearchStore
-from langchain_community.embeddings import OpenAIEmbeddings # Import from langchain_community
+!pip install -U langchain-community
 
-embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+from langchain_elasticsearch import ElasticsearchStore
+from langchain_community.embeddings import OpenAIEmbeddings # Import from langchain_community
 
-vector_store = ElasticsearchStore.from_documents(
-    docs,
-    es_cloud_id=ELASTIC_CLOUD_ID,
-    es_api_key=ELASTIC_API_KEY,
-    index_name="workplace-docs",
-    embedding=embeddings,
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+vector_store = ElasticsearchStore.from_documents(
+    docs,
+    es_cloud_id=ELASTIC_CLOUD_ID,
+    es_api_key=ELASTIC_API_KEY,
+    index_name="workplace-docs",
+    embedding=embeddings,
 )
